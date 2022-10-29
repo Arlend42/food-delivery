@@ -1,0 +1,5 @@
+-r main.txt
+
+black==22.10.0
+flake8==5.0.4
+ipython==8.5.0
