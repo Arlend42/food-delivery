@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
-class UserManger(BaseUserManager):  # only contains methods
+class UserManager(BaseUserManager):  # only contains methods
     def create_user(self, first_name, last_name, user_name, email, password=None):
         if not email:
             return ValueError('Email is required!')
@@ -65,7 +65,7 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['user_name', 'first_name', 'last_name']
 
-    objects = UserManger
+    objects = UserManager()
 
     def __str__(self):
         return self.email
