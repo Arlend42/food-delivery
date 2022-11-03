@@ -1,4 +1,3 @@
-from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -80,7 +79,7 @@ class User(AbstractBaseUser):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to ='user/profile_pictures', blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='user/profile_pictures', blank=True, null=True)
     addres_line = models.CharField(max_length=100, null=True, blank=True)
     state = models.CharField(max_length=20, blank=True, null=True)
     country = models.CharField(max_length=50, blank=True, null=True)
