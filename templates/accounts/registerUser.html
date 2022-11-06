@@ -67,6 +67,19 @@
                                             </div>
                                         </li>
                                         <li>
+                                            <ul class="error-list">
+                                                {% for field in form %}
+                                                    {% if field.errors %}
+                                                        {% for error in field.errors %}
+                                                            <li style="color:red;"><b>{{error}}</b></li>
+                                                            <p style="color: black;">Please try another one! {{error}}!</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <li style="color: red;">
+                                                    <b>{{form.non_field_errors}}</b>
+                                                </li>
+                                            </ul>
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="field-holder">
