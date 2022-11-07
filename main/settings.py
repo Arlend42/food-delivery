@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "accounts",
     "home",
     "pages",
+    "restaurants",
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
-        "USER": "mac",
-        "PASSWORD": "Eldi 2005",
+        "USER": "postgres",
+        "PASSWORD": "Python2022",
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -128,8 +129,8 @@ STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = ["main/static"]
 
 #  media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
