@@ -5,7 +5,7 @@ from .models import User
 # Create your views here.
 
 
-def registerUser(request):
+def register_user(request):
     if request.method == 'POST':
         print(request.POST)
         form = UserForm(request.POST)
@@ -17,18 +17,19 @@ def registerUser(request):
             phone_number = form.cleaned_data['phone_number']
             password = form.cleaned_data['password']
             user = User.objects.create_user(
-                first_name=first_name, last_name=last_name, email=email,
-                username=username, phone_number=phone_number, password=password)
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                phone_number=phone_number,
+                password=password
+            )
             user.role = User.CUSTOMER
             user.save()
-            print('this user is created')
-            return redirect('registerUser')
-        else:
-            print('Invalid Form')
-            print(form.errors)
+            return redirect('/')
     else:
         form = UserForm()
     context = {
-        'form': form,
-    }
+         'form': form,
+     }
     return render(request, 'accounts/registerUser.html', context)

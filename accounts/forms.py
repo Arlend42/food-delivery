@@ -1,6 +1,5 @@
 from django import forms
 from .models import User
-from django.shortcuts import redirect
 
 
 class UserForm(forms.ModelForm):
@@ -9,7 +8,14 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'phone_number', 'password']
+        fields = [
+            "first_name",
+            "last_name",
+            "username",
+            "email",
+            "phone_number",
+            "password",
+        ]
 
     def clean(self):
         cleaned_data = super(UserForm, self).clean()
@@ -18,4 +24,3 @@ class UserForm(forms.ModelForm):
         if password != confirm_password:
             print(password, confirm_password)
             raise forms.ValidationError('Password must match!')
-        return redirect('accounts/registerUser.html')
