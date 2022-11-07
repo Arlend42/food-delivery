@@ -1,6 +1,5 @@
 from django import forms
 from .models import User
-from django.shortcuts import redirect
 
 
 class UserForm(forms.ModelForm):
@@ -25,4 +24,3 @@ class UserForm(forms.ModelForm):
         if password != confirm_password:
             print(password, confirm_password)
             raise forms.ValidationError('Password must match!')
-
