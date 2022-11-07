@@ -3894,3 +3894,45 @@ span.list-feature-item { background: #00a79d; color: #ffffff; font-size: 12px; t
 textarea#comment_mes { display: none; }
 .main-search .field-holder{margin: 0 0 5px !important;}
 .main-search.fancy.bg-holder{padding: 5px 5px 0!important;}
+
+.icon-target5::before{
+ -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: rgb(81, 81, 81);
+  cursor: pointer;
+  display: inline;
+  font-family: icomoon;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant-alternates: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-weight: 400;
+  height: auto;
+  letter-spacing: normal;
+  line-height: 14px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  outline-color: rgb(81, 81, 81);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-shadow: none;
+  text-transform: none;
+  width: auto;
+}
