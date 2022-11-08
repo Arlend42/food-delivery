@@ -52,7 +52,7 @@ class User(AbstractBaseUser):
     phone_number = models.CharField(max_length=15, blank=True)
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICE, blank=True, null=True)
 
-    #  Rquired fields
+    #  Required fields
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
     created_date = models.DateTimeField(auto_now_add=True)
