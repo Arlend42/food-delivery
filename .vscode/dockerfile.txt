@@ -1,0 +1,6 @@
+docker run -p 5432:5432 -d \
+    -e POSTGRES_PASSWORD=Eldi2005 \
+    -e POSTGRES_USER=mac \
+    -e POSTGRES_DB=postgres \
+    -v pgdata:/var/lib/postgresql/data \
+    postgres
