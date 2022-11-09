@@ -6,11 +6,11 @@ class UserManager(BaseUserManager):  # only contains methods
     def create_user(self, first_name, last_name, username, email, phone_number, password=None):
         if not email:
             return ValueError('Email is required!')
- 
+
         if not username:
             return ValueError('username is required!')
 
-        user = self.model( 
+        user = self.model(
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,

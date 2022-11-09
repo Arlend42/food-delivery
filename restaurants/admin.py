@@ -1,4 +1,10 @@
 from django.contrib import admin
-from .models import Restaurant
+from restaurants.models import Restaurant
 
-admin.site.register(Restaurant)
+
+class RestaurantAdmin(admin.ModelAdmin):
+    list_display = ("user", "restaurant_name", "is_approved", "create_at", "modified_at")
+    list_display_links = ('user', 'restaurant_name',)
+
+
+admin.site.register(Restaurant, RestaurantAdmin)
