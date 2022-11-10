@@ -244,6 +244,7 @@
 .company-logo.simple ul li figure a { text-decoration: none; -webkit-box-shadow: none; box-shadow: none; outline: none; border: 0; display: block; }
 .company-logo.simple ul li figure a img { width: auto; }
 /* company-logo End */
+
 /*Restaurant Status*/
 .listing .restaurant-status { position: absolute; top: 15px; left: -11px; padding: 3px 10px; line-height: normal; background: #3ab54b; font-size: 10px; color: #fff; display: block; text-transform: uppercase; min-height: 20px; min-width: 52px; text-align: center; }
 .listing.simple ul li .img-holder .restaurant-status { left: -10px; }

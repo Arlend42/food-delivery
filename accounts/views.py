@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from .forms import UserForm
 from .models import User, UserProfile
 # from restaurants.models import Restaurant
 from restaurants.forms import RestaurantForm
+from .utils import determine_user
 
 
 def register_user(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return redirect('my_account')
+    elif request.method == "POST":
         print(request.POST)
         form = UserForm(request.POST)
         if form.is_valid():
@@ -36,7 +41,9 @@ def register_user(request):
 
 
 def register_restaurants(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return redirect('my_account')
+    elif request.method == "POST":
         form = UserForm(request.POST)
         restaurant_form = RestaurantForm(request.POST, request.FILES)
         if form.is_valid() and restaurant_form.is_valid():
@@ -76,12 +83,37 @@ def register_restaurants(request):
 
 
 def login(request):
-    pass
+    if request.user.is_authenticated:
+        return redirect('my_account')
+    elif request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = auth.authenticate(email=email, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('my_account')
+        else:
+            raise ('Invalid email or password!')
+    return render(request, 'accounts/login.html')
 
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect('login')
 
 
-def dashboard(request):
-    pass
+@login_required(login_url='login')
+def my_account(request):
+    user = request.user
+    redirectUrl = determine_user(user)
+    return redirect(redirectUrl)
+
+
+@login_required(login_url='login')
+def customer_profile(request):
+    return render(request, 'accounts/customer_profile.html')
+
+
+@login_required(login_url='login')
+def restaurant_profile(request):
+    return render(request, 'accounts/restaurant_profile.html')
