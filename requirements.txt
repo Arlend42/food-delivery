@@ -34,3 +34,4 @@ stack-data==0.5.1
 tomli==2.0.1
 traitlets==5.5.0
 wcwidth==0.2.5
+python-decouple==3.6
