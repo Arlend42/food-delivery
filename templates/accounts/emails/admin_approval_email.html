@@ -1,0 +1,17 @@
+{% autoescape off %}
+
+Hello {{user.first_name}}!,
+
+{% if is_approved %}
+Congratulations! The restaurant has been approved by our team. --deliverIt
+{% else %}
+We are sorry! You did not provide required information that proves that you have  a restaurant. 
+
+Please enter the information required and try again.
+
+deliverIt team will check again! If you are having difficulties please contact: delivertirana@gmail.com
+
+Thank you! --deliverIt
+{% endif %}
+
+{% endautoescape %}

@@ -80,7 +80,7 @@ def register_restaurants(request):
             restaurant.user_profile = user_profile
             restaurant.save()
             mail_subject = 'Please activate yout account'
-            email_template = 'accounts/emails/accont_verification_email.html'
+            email_template = 'accounts/emails/account_verification_email.html'
             messages.success(request, 'Thank you! Will come back to you ASAP')
             verification_email(request, user, mail_subject, email_template)
             return redirect('register_restaurants')
@@ -101,7 +101,7 @@ def activate_account(request, uidb64, token):
     # activate user by setting is_active status to true
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = User._default_manager.get(pk=uid)      
+        user = User._default_manager.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user is None
     if user is not None and default_token_generator.check_token(user, token):
@@ -175,7 +175,7 @@ def reset_password_validate(request, uidb64, token):
     # Validate the user by decoding the token and userpk
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = User._default_manager.get(pk=uid)  
+        user = User._default_manager.get(pk=uid)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user is None
     if user is not None and default_token_generator.check_token(user, token):
