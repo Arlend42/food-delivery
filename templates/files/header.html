@@ -9,7 +9,7 @@
                         <div class="logo">
                             <figure>
                                 <a href="{% url 'home' %}" class="light-logo mr-1">
-                                    <img src="{% static 'logo/Deliver_It_Logo.png'%}" height="35px" width="200px" alt="Logo here">
+                                    <img src="{% static 'logo/logo.png'%}" height="35px" width="200px" style="margin-top: 15px;"  alt="Logo here">
                                 </a>
                             </figure>
                         </div>
@@ -40,7 +40,7 @@
                             </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="login-option">
+                        <div class="login-option" style="margin-top: 10px;">
                             {% if user.is_authenticated %}
                             <a class="cs-color cs-popup-joinus-btn login-popup mr-1" href="{% url 'my_account' %}">My Account ({{user.username}})</a>
                             <a class="cs-color cs-popup-joinus-btn login-popup mr-1 text-danger" href="{% url 'logout' %}">Logout </a>

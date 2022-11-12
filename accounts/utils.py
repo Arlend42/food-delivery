@@ -10,29 +10,42 @@ from .models import User
 
 def determine_user(user):
     if user.role == User.RESTAURANT:
-        redirectUrl = "restaurant_profile"
+        redirectUrl = 'restaurant_profile'
         return redirectUrl
     elif user.role == User.CUSTOMER:
-        redirectUrl = "customer_profile"
+        redirectUrl = 'customer_profile'
         return redirectUrl
     elif user.role is None and user.is_superadmin:
-        redirectUrl = "/admin"
+        redirectUrl = '/admin'
         return redirectUrl
 
 
-def verification_email(request, user):
+def verification_email(request, user, mail_subject, email_template):
     from_email = settings.DEFAULT_FROM_EMAIL
     current_site = get_current_site(request)
-    mail_subject = "To activate this account please follow the link sent to your email!"
-    message = render_to_string(
-        "accounts/emails/account_verification_email.html",
-        {
-            "user": user,
-            "domain": current_site,
-            "uid": urlsafe_base64_encode(force_bytes(user.pk)),
-            "token": default_token_generator.make_token(user),
-        },
+    message = render_to_string(email_template, {
+           'user': user,
+           'domain': current_site,
+           'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+           'token': default_token_generator.make_token(user),
+        }
     )
     to_email = user.email
     mail = EmailMessage(mail_subject, message, from_email, to=[to_email])
     mail.send()
+
+
+# def password_reset(request, user):
+#     from_email = settings.DEFAULT_FROM_EMAIL
+#     current_site = get_current_site(request)
+#     mail_subject = 'Reset password'
+#     message = render_to_string('accounts/emails/reset_password.html', {
+#            'user': user,
+#            'domain': current_site,
+#            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+#            'token': default_token_generator.make_token(user),
+#         }
+#     )
+#     to_email = user.email
+#     mail = EmailMessage(mail_subject, message, from_email, to=[to_email])
+#     mail.send()
