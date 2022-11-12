@@ -37,7 +37,7 @@ def register_user(request):
 
             # verification email
             mail_subject = 'Please activate yout account'
-            email_template = 'accounts/emails/accont_verification_email.html'
+            email_template = 'accounts/emails/account_verification_email.html'
             verification_email(request, user, mail_subject, email_template)
             return redirect("register_user")
         else:
