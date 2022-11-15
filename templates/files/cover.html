@@ -1,0 +1,33 @@
+{% load static %}
+<div class="page-section restaurant-detail-image-section" style=" background: url({{ restaurant.user_profile.cover_picture.url }}) no-repeat scroll 0 0 / cover;">
+    <!-- Container Start -->
+    <div class="container">
+        <!-- Row Start -->
+        <div class="row">
+            <!-- Column Start -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="company-info-detail">
+                    <div class="company-info d-flex align-items-center">
+                        <div class="img-holder">
+                            <figure>
+                                <img src="{{ restaurant.user_profile.profile_picture.url }}" alt="">
+                            </figure>
+                        </div>
+
+                        <div class="text-holder ml-3">
+                            <span style="color:#fff;">{{restaurant.restaurant_name}}</span>
+                            <div class="text">
+                                <span style="color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill mr-2" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                  </svg>{{restaurant.user_profile.addres_line}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>

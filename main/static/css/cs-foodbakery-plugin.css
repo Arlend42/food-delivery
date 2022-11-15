@@ -1,3 +1,42 @@
+
+ 
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@Arlend42 
+Arlend42
+/
+food-delivery
+Public
+Pin
+ Unwatch 2 
+Fork 0
+ Star 0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+ main 
+food-delivery/main/static/css/cs-foodbakery-plugin.css
+Go to file
+
+@Arlend42
+Arlend42 Adding forget,reset and message feature
+Latest commit f145e96 2 days ago
+ History
+ 1 contributor
+541 lines (535 sloc)  53.8 KB
+Raw Blame
+
+ 
 .main-header .login-option { float: right; text-align: right; }
 .main-header .login-option a { outline: none; text-decoration: none; }
 .main-header .login-option a.login-popup { color: #333; font-size: 13px; font-weight: 700; margin: 0 0 0 15px; text-transform: uppercase; display: inline-block; margin-top: 22px; }
@@ -295,30 +334,7 @@
 .load-more-btn, .btn-load-more { border: 1px solid #c33332; border-radius: 3px; color: #c33332; display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 1px; line-height: normal; margin: 10px 0 0; outline: none; padding: 6px 30px; text-decoration: none; text-transform: uppercase; }
 .load-more-btn:hover, .btn-load-more:hover { color: #fff; background: #c33332; } 
 #foodbakery-dev-main-con- .close-menu-item { position: absolute; top: -10px; right: 15px; color: #c33332; cursor: pointer; display: inline-block; z-index: 10; }
-
-.text-color, .listing .post-title:hover h5 a, .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus,
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .pagination > .active > span > a,
-.order-sort-results ul li:hover a, .tabs-holder .nav li a:hover, .nav li  a:focus, .tabs-holder .nav-tabs li.active a, .nav-tabs li.active a:hover, .nav-tabs li.active a:focus, 
-.sub-header .breadcrumbs ul li:hover a, .sub-header .breadcrumbs ul li:hover:before, .widget-popular-cities ul li a:hover, .widget-popular-cuisines ul li a:hover, .widget-menu ul li a:hover, .widget-connect ul li p a:hover,
-.news-letter .news-letter-form form .btn-holder input[type="submit"]:hover, .widget-recent-blog-post li:hover .post-title h6 a, .widget-categories ul li a:hover, .widget-categories ul li a:hover:before, .widget-cloud ul li a:hover,
-.panel-group .panel-heading a , .categories-menu li a:hover, .user-order .error-message, .delivery-timing > ul > li > a span, .delivery-timing ul li ul.delivery-dropdown li a:hover, .blog-detail .blockquote-hloder::before, .blog-detail .tags-list li a:hover,
-.blog-detail .swiper-button-prev:hover, .blog-detail .swiper-button-next:hover, .blog .post-title h3 a:hover, .blog .post-title h4 a:hover, .blog-large .author-info p a, .delivery-list .button a:hover, .user-nav-list ul li a:hover, .user-nav-list ul li a:hover i,
-.company-holder .swiper-button-next:hover i, .company-holder .swiper-button-prev:hover i, .user-holder .add-btn a, .user-holder .order-list .author-info .text-holder span.price, .user-holder .order-list .order-btn a, .main-header.transparent .main-location ul li ul li a:hover, 
-.main-header.transparent .main-location ul li ul li .has-child li a:hover, .order-sort-results ul li.active a, .listing-filter .expand, #footer .footer-widget .widget a:hover, .order-sort-results ul li.active a, ul.dashboard-nav li a:hover, .upload-file button[type='button'], .user-dashboard-menu > ul > li > ul li.user-add-restaurant > a, .widget_tag_cloud .tagcloud a:hover, .page-not-found .cs-text span.cs-error, .widget.widget_nav_menu ul li a:hover, .widget.widget-categories li a:hover, .widget.widget_categories li a:hover, .widget.widget_pages ul li a:hover, .widget.widget_archive li a:hover,
-.widget.widget_meta li a:hover, .widget.widget_nav_menu ul li a:hover:before, .widget.widget-categories li a:hover:before, .widget.widget-archives ul li a:hover,
-.widget.widget_categories li:hover:before, .widget.widget_pages ul li:hover:before, .widget.widget_archive li:hover:before,.site-maps-links ul li:hover a, .widget.widget-archives ul li:hover a:before, .widget.twitter-post li p a, .widget.widget_recent_comments li a:hover, .widget.widget_rss li .rsswidget:hover, .cs-construction .time-box h4, .listing .list-option .viewmenu-btn, .restaurant-menu-nav.nav-tabs > li.active a, .user-nav-list ul li.active a, .user-nav-list ul li.active i, .categories-order li li:after, .listing.fancy-simple .delivery-potions i, .listing.grid-listing .min-order, .listing.grid-listing .listing-footer .text-holder p.deliver-time span, .listing.grid-listing .listing-footer .text-holder p.pickup-time span, .transparent-header .main-header .login-option a.login-popup, .copy-right p a, .blog-medium .read-more i, .related-post .read-more, .user-suggest-list > .element-title > h5 + span em, .listing.grid-listing h4 a:hover, .listing.grid-listing .listing-footer a.ordernow-btn:hover, .transparent-header .main-header .login-option a.get-start-btn:hover, .categories-menu li.active a,
-.company-holder.fancy .rating-star .rating-box:before, .company-holder.fancy .fancy-button-prev:hover i, .company-holder.fancy .fancy-button-next:hover i, .company-rating .list-option .shortlist-btn i, .wp-foodbakery .listing.grid-slider:hover .restaurant-status, #footer.footer-style-4 .widget-connect ul li span i,
-.wp-foodbakery .listing.grid-slider .rating-star .rating-box:before, .location-holder.modern a.more-btn, .grid-slider .swiper-button-prev:hover i, .grid-slider .swiper-button-next:hover i,
-.company-holder.simple .company-logo .text-holder .post-title h6 a:hover
-{
-color:#c33332 !important;
-}
-.bgcolor, .chosen-container .chosen-results li.highlighted, .order-sort-results ul li:hover:before, .bootstrap-datetimepicker-widget .btn-primary, 
-.booking-info-sec .contact-info .field-holder .submit-btn input[type="submit"], .user-order input[type="submit"], .main-post .column-text form .field-holder .field-btn, 
-.main-search.fancy.bg-holder, .load-more-btn:hover, .order-sort-results ul li.active:before, .order-sort-results ul li.active:before, .listing.simple.slide-loader:before, .main-header .login-option a.get-start-btn, .field-holder .btn-submit:hover, .no-results .suggestions ul li:before, .widget.widget_search form .btn-default, .textwidget span.button-med a, .cs-seprater:after, .slicknav_btn, .user-order .select-option input[type="radio"]:checked + label:after, #add_payment_method #payment ul.payment_methods li.wc_payment_method input[type="radio"]:checked + label:after, .woocommerce-checkout #payment ul.payment_methods li.wc_payment_method input[type="radio"]:checked + label:after, .woocommerce form .woocommerce-checkout-payment .form-row input.button, .pricetable-holder .cs-price, .foodbakery-button-loader, .invite-member .btn-send, .menu-order-detail .btn-print, .radio-holder .input-radio label:after, .footer-style-1 .social-media li a:hover, #footer.footer-style-1 .widget-title h5:after, .pricetable-holder .foodbakery-subscribe-pkg-btn, .pricetable-holder .foodbakery-subscribe-pkg, .login-form .input-filed input[type="submit"], .login-form .input-filed input[type="button"], .user-dashboard .foodbakery_loader, .user-order input[type="submit"], .user-order .menu-order-confirm, .modal-dialog .menu-selection-container button, .modal-dialog .menu-selection-container .reset-menu-fields, .suggestion-search .btn-default, .main-search.classic .field-holder input[type="submit"],
-.wp-foodbakery .listing.grid-slider .list-post:hover:before, #footer.footer-style-4 .social-media > li > a:hover, #header.transparent-header.court.pinned .main-header,
-.main-location > ul > li.choose-location ul ul::-webkit-scrollbar-thumb, .icon-boxes.fancy:hover .img-holder figure i
-{
+.bgcolor{
 background-color:#c33332 !important;
 }
 .max-location-height::-webkit-scrollbar-thumb, .slicknav_nav::-webkit-scrollbar-thumb
@@ -382,36 +398,6 @@ background-color:#ffffff !important;
 #header .main-navigation ul ul li a,
 #header .main-navigation ul ul ul li a
 {color:#000000 !important;}
-#header .main-navigation ul ul li:hover > a,
-#header .main-navigation ul li.current-menu-parent ul li.current-menu-item:hover > a,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-item > a,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-item > a:after,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-ancestor > a,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-ancestor > a:after {
-color:#999999 !important;}
-#header .main-navigation ul li > a,
-#header .main-navigation ul li.menu-item-has-children > a:after,
-.transparent-header .user-dashboard-menu > ul > li > a,
-.transparent-header .user-dashboard-menu > ul > li.user-dashboard-menu-children > a:after
-{ color:#999999 !important;}
-#header .main-navigation ul li:hover > a,
-#header .main-navigation ul li.menu-item-has-children:hover > a:after,
-#header .main-navigation ul li.current-menu-ancestor > a,
-#header .main-navigation ul li.current-menu-ancestor > a:after,
-#header .main-navigation ul li.current-menu-item > a,
-#header .main-navigation ul li.current-menu-item > a:after
-{ color:#c33332 !important; }
-#header .main-navigation ul ul ul,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-item > a,
-#header .main-navigation ul li.current-menu-ancestor ul li.current-menu-ancestor > a,
-#header .main-navigation ul ul,
-#header .main-navigation ul ul ul li:hover > a
-{ background:#ffffff !important; }
-.page-sidebar .widget-title h3, .page-sidebar .widget-title h4, .page-sidebar .widget-title h5, .page-sidebar .widget-title h6{
-color:#2d2d2d !important;
-}	    .section-sidebar .widget-title h3, .section-sidebar .widget-title h4, .section-sidebar .widget-title h5, .section-sidebar .widget-title h6{
-color:#2d2d2d !important;
-}
 #footer .footer-widget { background-color:#282C35 !important; }
 #footer .footer-widget p, .custom-container
 {color:#cdcdcd !important;}

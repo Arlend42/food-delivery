@@ -5,7 +5,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from .forms import UserForm
 from .models import User, UserProfile
-# from restaurants.models import Restaurant
+from restaurants.models import Restaurant
 from restaurants.forms import RestaurantForm
 from .utils import determine_user, verification_email
 
@@ -31,6 +31,7 @@ def register_user(request):
                 phone_number=phone_number,
                 password=password,
             )
+            print(User.objects.get(password))
             user.role = User.CUSTOMER
             user.save()
             messages.success(request, 'Please check the email for the confirmation link!')
@@ -79,6 +80,7 @@ def register_restaurants(request):
             user_profile = UserProfile.objects.get(user=user)
             restaurant.user_profile = user_profile
             restaurant.save()
+            print(user)
             mail_subject = 'Please activate yout account'
             email_template = 'accounts/emails/account_verification_email.html'
             messages.success(request, 'Thank you! Will come back to you ASAP')
@@ -121,7 +123,7 @@ def login(request):
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(email=email, password=password)
+        user = auth.authenticate(email=email, password=password)  
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are now logged in')
@@ -151,7 +153,11 @@ def customer_profile(request):
 
 @login_required(login_url='login')
 def restaurant_profile(request):
-    return render(request, 'accounts/restaurant_profile.html')
+    restaurant = Restaurant.objects.get(user=request.user)
+    context = {
+        'restaurant': restaurant,
+    }
+    return render(request, 'accounts/restaurant_profile.html', context)
 
 
 def forgot_password(request):

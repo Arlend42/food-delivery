@@ -1,0 +1,43 @@
+.restaurant_profile1:link, .restaurant_profile1:visited {
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    color: #333;
+}
+.restaurant_profile1:hover{
+        font-weight: 600;
+        font-size: 16px;    
+        cursor: pointer;
+        color: #c33332 !important; 
+    }
+.restaurant_logout1:link, .restaurant_logout1:visited {
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+}
+.restaurant_logout1:hover{
+    font-weight: 600;
+    color: #c33332;
+    text-decoration: none;
+    font-size: 18px;
+}
+.user-dashboard1 {
+    background-color: #fff;
+    padding: 25px 30px 30px;
+    position: relative;
+    width: 250px;
+    margin: 60px auto;
+    border-top: 3px solid #daccdc;
+    box-shadow: 3px 3px 3px #b63a2b;        
+    list-style:none;
+}
+.active1{       
+    color: #c33332 !important; 
+} 
+      
+
+.active1 > a{
+    color: #c33332 !important; 
+}    
+
