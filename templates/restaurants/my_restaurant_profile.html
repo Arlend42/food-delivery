@@ -71,7 +71,11 @@
                                                                 <li style="list-style:none">
                                                                     <div class="drag-list">
                                                                         <div class="item-thumb">
-                                                                            <img class="thumbnail" width="120px" height="120px" src="{{customer_profile.profile_picture.url}}" alt="logo">
+                                                                            {% if customer_profile.profile_picture %}
+                                                                                <img class="thumbnail" width="120px" height="120px" src="{{customer_profile.profile_picture.url}}" alt="logo">
+                                                                            {% else %}
+                                                                                <img class="thumbnail" width="120px" height="120px" src="{% static 'images/default_profile.png' %}" alt="Profile Picture">
+                                                                            {% endif %}    
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -81,7 +85,7 @@
                                                             <label><b>Update Logo</b></label>
                                                             <div class="upload-gallery">
                                                                 {{customer_profile_form.profile_picture}}
-                                                            </div>                                                            
+                                                            </div>                                                              
                                                         </div>
                                                         <label class="text-danger">{{customer_profile_form.profile_picture.errors}}</label>
                                                     </div>  
@@ -93,7 +97,11 @@
                                                                 <li style="list-style:none">
                                                                     <div class="drag-list">
                                                                         <div class="item-thumb">
-                                                                            <img class="thumbnail" width="120px" height="120px" src="{{customer_profile.cover_picture.url}}" alt="cover">
+                                                                            {% if customer_profile.cover_picture %}
+                                                                                <img class="thumbnail" width="120px" height="120px" src="{{customer_profile.cover_picture.url}}" alt="cover">
+                                                                            {% else %}
+                                                                                <img class="thumbnail" width="120px" height="120px" src="{% static 'images/default_cover.png'%}" alt="cover">
+                                                                            {% endif %}
                                                                         </div>
                                                                     </div>
                                                                 </li>

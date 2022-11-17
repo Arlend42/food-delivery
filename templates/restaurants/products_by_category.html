@@ -77,10 +77,18 @@
                                     </td>
                                     <td class="text-left">
                                         <a href="#"><p class="mb-0 font-weight-bold ">{{product.food_name}}</p>
-                                        <small class="text-muted">{{product.product_description}}</small></a>
+                                        <small class="text-muted">{{product.description}}</small></a>
                                     </td>
-                                    <td class="text-left"> <i class="fa fa-pencil mr-2" aria-hidden="true"></i> &nbsp;
-                                      <i class="fa fa-trash text-danger" aria-hidden="true"></i></td>
+                                    <td>
+                                      {% if product.is_available %}
+                                      <span class="badge badge-success">Available</span>
+                                      {% else %}
+                                      <span class="badge badge-danger">Not Available</span>
+                                      {% endif %}
+                                    </td>
+                                    <td class="text-left"><a href="{% url 'edit_product' product.id %}" style="color: unset;"><i class="fa fa-pencil mr-2" aria-hidden="true"></i></a> &nbsp;
+                                      <a href="{% url 'delete_product' product.id %}" onclick="return confirm('Are you sure you want to delete this product?')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                                    </td>
                                   </tr> 
                                   {% endfor %}
                                 </tbody>
