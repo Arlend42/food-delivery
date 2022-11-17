@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "accounts",
     "home",
     "pages",
+    "menu",
     "restaurants",
 ]
 
@@ -69,6 +70,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "accounts.context_processors.get_restaurant",
+                "accounts.context_processors.get_google_api",
             ],
         },
     },
@@ -151,3 +153,5 @@ DEFAULT_FROM_EMAIL = 'deliverIt <delivertirana@gmail.com>'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+GOOGLE_API_KEY = 'AIzaSyA1egLpIXyBx_VK948hilgvfkfJv7svQAk'

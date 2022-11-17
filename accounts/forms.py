@@ -27,6 +27,7 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
+    address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Start typing...', 'required': 'required'}))
     profile_picture = forms.ImageField(widget=forms.FileInput(attrs={'class': 'btn btn-info'}))
     cover_picture = forms.ImageField(widget=forms.FileInput(attrs={'class': 'btn btn-info'}))
     latitude = forms.CharField(widget=forms.TextInput(attrs={'readonly': 'readonly'}))
@@ -35,5 +36,5 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = [
-            'profile_picture', 'cover_picture', 'addres_line', 'state', 'country', 'city',
-            'pin_code', 'latitude', 'longitude']
+            'profile_picture', 'cover_picture', 'address', 'state', 'country', 'city',
+            'zip_code', 'latitude', 'longitude']

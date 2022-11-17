@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from accounts.forms import UserProfileForm
 from accounts.models import UserProfile
+from menu.models import Category
 from .forms import RestaurantForm
 from .models import Restaurant
 
@@ -33,3 +34,12 @@ def my_restaurant_profile(request):
         'restaurant_profile': restaurant_profile
     }
     return render(request, 'restaurants/my_restaurant_profile.html', context)
+
+
+def menu_builder(request):
+    restaurant = Restaurant.objects.get(user=request.user)
+    categories = Category.objects.filter(restaurant=restaurant)
+    context = {
+        'categories': categories,
+    }
+    return render(request, 'restaurants/menu_builder.html', context)
