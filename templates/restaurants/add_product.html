@@ -62,16 +62,22 @@
                             <button class="btn btn-secondary" onclick="history.back()"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</button>
                             <br>
                             <br>
-                            <h6>Add New Category</h6>
+                            <h6>Add New Product (Food-Item)</h6>
                             <hr>
-                            <form action="{% url 'add_category' %}" method="POST">
+                            <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-fields-set">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="field-holder">
-                                                <label>Category Name *</label>
-                                                {{form.category_name}}
+                                                <label>Food Name *</label>
+                                                {{form.food_name}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="field-holder">
+                                                <label>Category *</label>
+                                                {{form.category}}
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -79,6 +85,27 @@
                                                 <label>Description</label>
                                                 {{form.description}}
                                             </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div>
+                                                <label>Price *</label>
+                                                {{form.price}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div>
+                                                <label>Image *</label>
+                                                {{form.image}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div>
+                                                <label>Is Available ?</label>
+                                                <br>
+                                                <label class="ml-3">{{form.is_available}}</label>
+                                            </div>
+                                        </div>
+                                        <br>
                                     </div>
                                 </div>
                                 {% for field in form %}
