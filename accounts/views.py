@@ -3,9 +3,10 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
+from restaurants.forms import RestaurantForm
+from restaurants.models import Restaurant
 from .forms import UserForm
 from .models import User, UserProfile
-from restaurants.forms import RestaurantForm
 from .utils import determine_user, verification_email
 
 
@@ -77,7 +78,6 @@ def register_restaurants(request):
             user_profile = UserProfile.objects.get(user=user)
             restaurant.user_profile = user_profile
             restaurant.save()
-            print(user)
             mail_subject = 'Please activate yout account'
             email_template = 'accounts/emails/account_verification_email.html'
             messages.success(request, 'Thank you! Will come back to you ASAP')
@@ -150,7 +150,11 @@ def customer_profile(request):
 
 @login_required(login_url='login')
 def restaurant_profile(request):
-    return render(request, 'accounts/restaurant_profile.html')
+    restaurant = Restaurant.objects.get(user=request.user)
+    context = {
+        'restaurant': restaurant,
+    }
+    return render(request, 'accounts/restaurant_profile.html', context)
 
 
 def forgot_password(request):
