@@ -297,6 +297,13 @@
 .restaurant-info { position: relative; margin-bottom: 45px; }
 .restaurant-info:after { clear: both; display: block; content: ""; }
 .user-holder .restaurant-info .foodbakery-gallery-holder { margin: 0; position: relative; z-index: 2; }
+.listing .restaurant-status { position: absolute; top: 15px; left: -11px; padding: 3px 10px; line-height: normal; background: #3ab54b; font-size: 10px; color: #fff; display: block; text-transform: uppercase; min-height: 20px; min-width: 52px; text-align: center; }
+.listing.simple ul li .img-holder .restaurant-status { left: -10px; }
+.listing .restaurant-status:before { width: 0; height: 0; border-top: 10px solid #239132; border-left: 10px solid transparent; content: ""; left: 0; position: absolute; bottom: -10px; }
+.listing .restaurant-status.close { background: #ed1b24; opacity: 1; cursor: auto; font-weight: normal; float: none; text-shadow: none; }
+.listing .restaurant-status.close:before { border-top: 10px solid #c91018; }
+.listing .restaurant-status .bookmarkRibbon { width: 10px; height: 0px; border-top: 10px solid #3ab54b; border-bottom: 10px solid #3ab54b; border-right: 5px solid transparent; position: absolute; top: 0; right: -6px; }
+.listing .restaurant-status.close .bookmarkRibbon { border-top: 10px solid #ed1b24; border-bottom: 10px solid #ed1b24; }
 /*Load More-btn Style*/
 .load-more-btn, .btn-load-more { border: 1px solid #c33332; border-radius: 3px; color: #c33332; display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 1px; line-height: normal; margin: 10px 0 0; outline: none; padding: 6px 30px; text-decoration: none; text-transform: uppercase; }
 .load-more-btn:hover, .btn-load-more:hover { color: #fff; background: #c33332; } 
@@ -390,6 +397,7 @@ color:#cdcdcd !important;
 #footer.modern-v1 .cs-copyright {background-color:#282c35 !important;}
 #footer .copyright-sec,
 #footer.modern-v1 .cs-copyright {background-color:#282c35 !important;}
+
 
 @media screen and (max-width: 1370px) {
 .wrapper-full_width .main-header .wide .col-lg-8 { width: 67%; }
