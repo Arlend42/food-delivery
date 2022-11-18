@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-section">
+    <div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 10px;margin-bottom: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <aside class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        </aside>
+                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <div class="listing fancy">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h4>{{restaurants_counter}} Restaurant's found</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing fancy">
+                                <ul>
+                                    {% for restaurant in restaurants %}
+                                        <li class="list-post featured">
+                                            <div class="img-holder">
+                                                <figure>
+                                                    <a href="#">
+                                                        {% if restaurant.user_profile.profile_picture %}
+                                                            <img src="{{restaurant.user_profile.profile_picture.url}}" class="img-list wp-post-image" alt="">
+                                                        {% else %}
+                                                        <img src="{% static 'images/default_profile.png' %}" class="img-list wp-post-image" alt="">
+                                                        {% endif %}
+                                                    </a>
+                                                </figure>
+                                                <span class="restaurant-status close"><em class="bookmarkRibbon"></em>Close</span>
+                                            </div>
+                                            <div class="text-holder">
+                                                <div class="post-title">
+                                                    <h5>
+                                                        <a href="listing-detail.html">{{restaurant.restaurant_name}}</a>
+                                                    </h5>
+                                                </div>
+                                                {% if restaurant.user_profile.address %}
+                                                    <span><small class="text-muted">{{restaurant.user_profile.address}}</small></span>
+                                                {% endif %}
+                                            </div>
+                                            <div class="list-option">
+                                                <a href="#" class="btn btn-outline-danger mt-4">View Menu</a>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="section-sidebar col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div style="background-color: #FA9918; padding: 25px; text-align: center; margin-bottom: 20px; border: 1px solid #D7D7D7; ">
+                                <strong style="display: block; color: #fff; font-size: 16px; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 8px;">I'm not Listed!</strong>
+                                <span style="color: #fff; font-size: 14px; font-weight: 600; line-height: 20px; display: block; margin-bottom: 20px; ">Is your restaurant or
+                                    business not
+                                    listed on our site?</span>
+                                <a href="{% url 'register_restaurants' %}"style="display: block; color: #fff; font-size: 12px; font-weight: 700; border: 1px solid #fff; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; line-height: 32px;">Add Your business!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

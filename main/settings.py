@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "pages",
     "menu",
     "restaurants",
+    "marketplace",
 ]
 
 MIDDLEWARE = [

@@ -3,13 +3,14 @@
     <!-- Header fillon ktu(starts here) -->
     <header id="header">
         <div class="main-header">
-            <div class="container"> 
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                         <div class="logo">
                             <figure>
                                 <a href="{% url 'home' %}" class="light-logo mr-1">
-                                    <img src="{% static 'logo/logo.png'%}" height="35px" width="200px" style="margin-top: 15px;"  alt="Logo here">
+                                    <img src="{% static 'logo/logo.png'%}" height="35px" width="200px"
+                                        style="margin-top: 15px;" alt="Logo here">
                                 </a>
                             </figure>
                         </div>
@@ -17,39 +18,49 @@
                             <ul>
                                 <li class="location-has-children choose-location">
                                     <form action="#">
-                                        <input type="text" value="" name="location" placeholder="Enter your delivery location" autocomplete="off">
-                                        <button  id="foodbakery_radius_location_open" class="foodbakery-radius-location">
-                                            <svg version="1.1" height="12px" widht="12px" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                                        <input type="text" value="" name="location"
+                                            placeholder="Enter your delivery location" autocomplete="off">
+                                        <button id="foodbakery_radius_location_open" class="foodbakery-radius-location">
+                                            <svg version="1.1" height="12px" widht="12px" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;"
+                                                xml:space="preserve">
                                                 <g>
-                                                    <path d="M490,234.111h-60.504c-5.446-93.259-80.347-168.159-173.607-173.605V0h-21.778v60.506
+                                                    <path
+                                                        d="M490,234.111h-60.504c-5.446-93.259-80.347-168.159-173.607-173.605V0h-21.778v60.506
                                                         c-93.258,5.446-168.16,80.347-173.605,173.605H0v21.778h60.506c5.446,93.259,80.347,168.16,173.605,173.605V490h21.778v-60.506
                                                         c93.259-5.445,168.161-80.346,173.606-173.605H490V234.111z M255.889,407.674V347.86h-21.778v59.814
                                                         C152.863,402.29,87.71,337.137,82.326,255.889h59.815v-21.778H82.326C87.71,152.862,152.863,87.71,234.111,82.326v59.814h21.778
-                                                        V82.326c81.249,5.383,146.402,70.536,151.786,151.785H347.86v21.778h59.815C402.291,337.137,337.138,402.29,255.889,407.674z"/>
-                                                    <path d="M245,199.562c-25.052,0-45.437,20.385-45.437,45.438s20.385,45.437,45.437,45.437c25.053,0,45.438-20.384,45.438-45.437
+                                                        V82.326c81.249,5.383,146.402,70.536,151.786,151.785H347.86v21.778h59.815C402.291,337.137,337.138,402.29,255.889,407.674z" />
+                                                    <path
+                                                        d="M245,199.562c-25.052,0-45.437,20.385-45.437,45.438s20.385,45.437,45.437,45.437c25.053,0,45.438-20.384,45.438-45.437
                                                         S270.053,199.562,245,199.562z M245,268.66c-13.047,0-23.659-10.613-23.659-23.66c0-13.048,10.612-23.66,23.659-23.66
-                                                        c13.048,0,23.661,10.612,23.661,23.66C268.661,258.047,258.048,268.66,245,268.66z"/>
+                                                        c13.048,0,23.661,10.612,23.661,23.66C268.661,258.047,258.048,268.66,245,268.66z" />
                                                 </g>
                                             </svg>
                                         </button>
                                     </form>
-                                    
                                 </li>
                             </ul>
-                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                         <div class="login-option" style="margin-top: 10px;">
+                            <a href="{% url 'marketplace' %}"
+                                class="btn btn-outline-danger text-uppercase font-weight-bold">Marketplace</a>
                             {% if user.is_authenticated %}
-                            <a class="cs-color cs-popup-joinus-btn login-popup mr-1" href="{% url 'my_account' %}">My Account ({{user.username}})</a>
-                            <a class="cs-color cs-popup-joinus-btn login-popup mr-1 text-danger" href="{% url 'logout' %}">Logout </a>
+                            <a class="cs-color cs-popup-joinus-btn login-popup " href="{% url 'my_account' %}">My
+                                Account ({{user.username}})</a>
+                            <a class="cs-color cs-popup-joinus-btn login-popup text-danger"
+                                href="{% url 'logout' %}">Logout</a>
                             {% else %}
-                            <a class="cs-color cs-popup-joinus-btn login-popup mr-1" href="{% url 'login' %}">Login </a>/
-                                <span><a href="{% url 'register_user' %}" class="cs-color cs-popup-joinus-btn login-popup ml-0"> Register</a></span>
-                            <a class="get-start-btn" href="{% url 'register_restaurants' %}">
-                                Register
-                                Restaurant </a> 
+                            <a class="cs-color cs-popup-joinus-btn login-popup ml-1" href="{% url 'login' %}">Login </a>
+                            <span><a href="{% url 'register_user' %}"
+                                    class="cs-color cs-popup-joinus-btn login-popup ml-1"> Register</a></span>
+                            <a class="get-start-btn" style="padding: 12px 10px;"
+                                href="{% url 'register_restaurants' %}">
+                                Register Restaurant </a>
                             {% endif %}
                         </div>
                     </div>
