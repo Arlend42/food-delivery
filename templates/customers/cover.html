@@ -1,0 +1,41 @@
+{% load static %}
+<div class="page-section restaurant-detail-image-section" 
+style=" background: url(
+    {% if customer_profile.cover_picture %}
+        {{customer_profile.cover_picture.url}}
+    {% else %}
+        {% static 'images/default_cover.png'%}
+    {% endif %}) no-repeat scroll 0 0 / cover;">
+    <!-- Container Start -->
+    <div class="container">
+        <!-- Row Start -->
+        <div class="row">
+            <!-- Column Start -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="company-info-detail">
+                    <div class="company-info d-flex align-items-center">
+                        <div class="img-holder">
+                            <figure>
+                                {% if customer_profile.profile_picture %}
+                                    <img src="{{ customer_profile.profile_picture.url }}" width="160px" height="120px" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/default_profile.png' %}" width="160px" height="120px" alt="">
+                                {% endif %}
+                            </figure>
+                        </div>
+
+                        <div class="text-holder ml-3">
+                            <span style="color:#fff;">{{user.first_name}} {{user.last_name}}</span>
+                            <div class="text">
+                                    <span style="color:#fff;"><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; {{user.phone_number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>

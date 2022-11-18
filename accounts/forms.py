@@ -38,3 +38,9 @@ class UserProfileForm(forms.ModelForm):
         fields = [
             'profile_picture', 'cover_picture', 'address', 'state', 'country', 'city',
             'zip_code', 'latitude', 'longitude']
+
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'phone_number']
