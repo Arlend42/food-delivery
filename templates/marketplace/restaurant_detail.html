@@ -84,21 +84,28 @@
                                     <div id="menu-item-list-6272" class="menu-itam-list">
                                         {% for category in categories %}
                                             <div class="element-title" id="menu-category-2">
-                                                <h5 class="text-color">{{ category }}</h5>
-                                                <span>{{ category.description }}</span>
+                                                <h5 class="text-color text-info" style="margin-bottom:-5px">{{ category }}</h5>
+                                                <span><small>{{ category.description }} </small></span>
                                             </div>
                                             <ul>
                                                 {% for product in category.products.all %}
-                                                    <li>
-                                                        <div class="image-holder"> <img class="thumbnail" width="120px" height="120px"  src="{{ product.image.url }}" alt=""></div>
-                                                        <div class="text-holder">
-                                                            <h6>{{ product }}</h6>
-                                                            <span>{{ product.description }}</span>
-                                                        </div>
-                                                        <div class="price-holder">
-                                                            <span class="price">{{ product.price }} €</span>
-                                                            <a href="#" class="restaurant-add-menu-btn"><i class="icon-plus4 text-color"></i></a>
-                                                            <span id="add-menu-loader-10"></span>
+                                                    <li style="list-style: none;">
+                                                        <hr>
+                                                        <div class="d-flex justify-content-between align-items-center ">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="image-holder mb-3 mr-4" > 
+                                                                    <img class="thumbnail" width="120px" height="120px"  src="{{ product.image.url }}" alt="">
+                                                                </div>
+                                                                <div class="mt-5">
+                                                                    <h6 style="margin-bottom:-5px">{{ product }}</h6>
+                                                                    <span><small>{{ product.description }}</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-holder">
+                                                                <span class="price"><b>{{ product.price }} € &nbsp; </b></span>
+                                                                <a href="#" class="btn" style="color: #c32222;"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                                                                <span id="add-menu-loader-10"></span>
+                                                            </div>
                                                         </div>
                                                     </li>
                                                 {% endfor %}
