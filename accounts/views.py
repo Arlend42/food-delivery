@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
+from django.template.defaultfilters import slugify
 from restaurants.forms import RestaurantForm
 from restaurants.models import Restaurant
 from .forms import UserForm
@@ -75,6 +76,8 @@ def register_restaurants(request):
             user.save()
             restaurant = restaurant_form.save(commit=False)
             restaurant.user = user
+            restaurant_name = restaurant_form.cleaned_data["restaurant_name"]
+            restaurant.restaurant_slug = slugify(restaurant_name)
             user_profile = UserProfile.objects.get(user=user)
             restaurant.user_profile = user_profile
             restaurant.save()
@@ -120,7 +123,7 @@ def login(request):
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(email=email, password=password)  
+        user = auth.authenticate(email=email, password=password)   
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are now logged in')
