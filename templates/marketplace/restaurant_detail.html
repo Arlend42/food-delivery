@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="main-section">
+    <div class="page-section restaurant-detail-image-section" 
+    style=" background: url(
+    {% if restaurant.user_profile.cover_picture %}
+        {{restaurant.user_profile.cover_picture.url}}
+    {% else %}
+        {% static 'images/default_cover.png'%}
+    {% endif %})  no-repeat scroll 0 0 / cover;">
+        <!-- Container Start -->
+        <div class="container">
+            <!-- Row Start -->
+            <div class="row">
+                <!-- Column Start -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="company-info-detail">
+                        <div class="company-info d-flex align-items-center">
+                            <div class="img-holder">
+                                <figure>
+                                    {% if restaurant.user_profile.profile_picture %}
+                                        <img src="{{ restaurant.user_profile.profile_picture.url }}" width="160px" height="120px" alt="">
+                                    {% else %}
+                                        <img src="{% static 'images/default_profile.png' %}" width="160px" height="120px" alt="">
+                                    {% endif %}
+                                </figure>
+                            </div>
+                            <div class="text-holder ml-3">
+                                <span style="color:#fff;">{{ restaurant.restaurant_name }}</span>
+                                <div class="text">
+                                    {% if restaurant.user_profile.address %}
+                                        <span style="color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill mr-2" viewBox="0 0 16 16">
+                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>{{restaurant.user_profile.address}}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 sticky-sidebar">
+                    <div class="user-dashboard1">
+                        <div class="categories-menu">
+                            <h5 class="text-uppercase mt-2"><i class="fa fa-cutlery"></i> &nbsp; Categories</h5>
+                            <ul style="list-style: none;">
+                                {% for category in categories %}
+                                <li class="active" style="list-style: none;"><a href="#" class="restaurant_profile1"> {{category}} </a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="tabs-holder horizontal ">
+                        <ul style="list-style:none">
+                            <li style="list-style:none" class="active"><h6 class="text-uppercase text-danger"><i class="fa fa-bars"></i> &nbsp; Menu</h6></li>
+                        </ul>
+                        <div style="background-color: #fff;
+                        padding: 25px 30px 30px;
+                        position: relative;
+                        width: 850px;
+                        margin: 0 auto;
+                        min-height: 450px;
+                        border-top: 3px solid #dcdcdc;
+                        box-shadow: 3px 3px 3px #dcdcab inset; 
+                        list-style:none;">
+                            <div id="home" class="tab-pane in active">
+                                <div class="menu-itam-holder">
+                                    
+                                    <div id="menu-item-list-6272" class="menu-itam-list">
+                                        {% for category in categories %}
+                                            <div class="element-title" id="menu-category-2">
+                                                <h5 class="text-color">{{ category }}</h5>
+                                                <span>{{ category.description }}</span>
+                                            </div>
+                                            <ul>
+                                                {% for product in category.products.all %}
+                                                    <li>
+                                                        <div class="image-holder"> <img class="thumbnail" width="120px" height="120px"  src="{{ product.image.url }}" alt=""></div>
+                                                        <div class="text-holder">
+                                                            <h6>{{ product }}</h6>
+                                                            <span>{{ product.description }}</span>
+                                                        </div>
+                                                        <div class="price-holder">
+                                                            <span class="price">{{ product.price }} €</span>
+                                                            <a href="#" class="restaurant-add-menu-btn"><i class="icon-plus4 text-color"></i></a>
+                                                            <span id="add-menu-loader-10"></span>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endfor %} 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
