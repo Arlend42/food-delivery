@@ -3,22 +3,26 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class UserManager(BaseUserManager):  # only contains methods
-    def create_user(self, first_name, last_name, username, email, phone_number, password=None):
+    def create_user(
+        self, first_name, last_name, username, email, phone_number, password=None
+    ):
         if not email:
-            return ValueError('Email is required!')
+            return ValueError("Email is required!")
 
         if not username:
-            return ValueError('username is required!')
+            return ValueError("username is required!")
 
         user = self.model(
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
         )
 
         user.set_password(password)
-        user.save(using=self.db)    # in that you have many databases you can use this using built-in
+        user.save(
+            using=self.db
+        )  # in that you have many databases you can use this using built-in
         return user
 
     def create_superuser(self, first_name, last_name, username, email, password=None):
@@ -41,10 +45,7 @@ class User(AbstractBaseUser):
     RESTAURANT = 1
     CUSTOMER = 2
 
-    ROLE_CHOICE = (
-        (RESTAURANT, 'Restaurant'),
-        (CUSTOMER, 'Customer')
-    )
+    ROLE_CHOICE = ((RESTAURANT, "Restaurant"), (CUSTOMER, "Customer"))
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     username = models.CharField(max_length=100, unique=True)
@@ -62,8 +63,8 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
 
     objects = UserManager()
 
@@ -84,14 +85,18 @@ class User(AbstractBaseUser):
     #     return user_role
     def determine_role(self):
         if self.role == self.RESTAURANT:
-            return 'Restaurant'
-        return 'Customer'
+            return "Restaurant"
+        return "Customer"
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to='user/profile_pictures', blank=True, null=True)
-    cover_picture = models.ImageField(upload_to='user/cover_pictures', blank=True, null=True)
+    profile_picture = models.ImageField(
+        upload_to="user/profile_pictures", blank=True, null=True
+    )
+    cover_picture = models.ImageField(
+        upload_to="user/cover_pictures", blank=True, null=True
+    )
     address = models.CharField(max_length=100, null=True, blank=True)
     state = models.CharField(max_length=20, blank=True, null=True)
     country = models.CharField(max_length=50, blank=True, null=True)

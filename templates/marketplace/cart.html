@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main-section pt-5 pb-5">
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="tabs-holder horizontal ">
+                        <ul style="list-style:none">
+                            <li style="list-style:none" class="active">
+                                <h6 class=" text-danger ml-3"><i class="fa fa-shopping-cart text-danger"></i> Cart Items</h6>
+                            </li>
+                        </ul>
+                        <div style="background-color: #fff;
+                            padding: 25px 30px 30px;
+                            position: relative;
+                            margin: 0 auto;
+                            border: 3px solid #dcdcdc;
+                            box-shadow: 3px 3px 3px #dcdcab inset; 
+                            list-style:none;" class="mr-2">
+                            <div id="home" class="tab-pane in active">
+                                <div class="menu-itam-holder">
+                                    <div class="text-center p-5" id="empty-cart" style="display: none;">
+                                        <h3>Cart Empty</h3>
+                                    </div>  
+                                    <div id="menu-item-list-6272" class="menu-itam-list">
+                                        <ul>
+                                            {% if cart_items %}
+                                                {% for item in cart_items %}
+                                                    <li id="cart-item-{{item.id}}" style="list-style: none;">
+                                                        <hr>
+                                                        <div class="d-flex justify-content-between align-items-center ">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="image-holder mb-3 mr-4" > 
+                                                                    <img class="thumbnail" width="120px" height="120px"  src="{{ item.product.image.url }}" alt="">
+                                                                </div>
+                                                                <div class="mt-5">
+                                                                    <h6 style="margin-bottom:-5px">{{ item.product }}</h6>
+                                                                    <span><small>{{ item.product.description }}</small></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-holder">
+                                                                <span class="price mr-4"><b>{{ item.productitem.price }} € &nbsp; </b></span>
+                                                                <a href="#" class="remove_from_cart" data-id="{{item.product.id}}" id="{{item.id}}" data-url="{% url 'remove_from_cart' item.product.id %}"  style="color: #c32222;">
+                                                                    <i class="fa fa-minus mr-4 fa-lg"  aria-hidden="true"></i>
+                                                                <label  id="qty-{{item.product.id}}" class="mr-4" style="color: #333;"><b>0</b></label>
+                                                                <a href="#" class="add_to_cart" data-id="{{item.product.id}}" data-url="{% url 'add_to_cart' item.product.id %}" style="color: #c32222;">
+                                                                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                                                                </a>
+                                                                <a href="#" class="delete_cart_item" data-id="{{item.id}}" data-url="{% url 'delete_cart_item' item.id %}" style="color: #c32222;">
+                                                                    <i class="fa fa-trash fa-lg ml-4" aria-hidden="true"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            {% else %}
+                                                    <div class="text-center p-5">
+                                                        <h3>Cart Empty</h3>
+                                                    </div>
+                                            {% endif %} 
+                                        </ul>
+                                    </div>
+                                    {% for item in cart_items %}
+                                        <span id="qty-{{item.product.id}}" class="item_qty d-none" data-qty="{{item.quantity}}">{{item.quantity}}</span>
+                                    {% endfor %}
+                                    {% for item in cart_items %}
+                                        <span id="qty-{{item.product.id}}" class="item_qty d-none" data-qty="{{item.quantity}}">{{item.quantity}}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                 <!-- Order section -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="tabs-holder horizontal ">
+                        <ul style="list-style:none">
+                            <li style="list-style:none" class="active">
+                                <h6 class=" text-danger ml-4"><i class="fa fa-bars"></i> &nbsp; Your Order</h6>
+                            </li>
+                        </ul>
+                        <div style="background-color: #fff;
+                            padding: 25px 30px 25px;
+                            position: relative;
+                            margin: 0 auto;
+                            border: 3px solid #dcdcdc;
+                            box-shadow: 3px 3px 3px #dcdcab inset; 
+                            list-style:none;" class="ml-2">
+                            <div id="home" class="tab-pane in active">
+                                <div class="menu-itam-holder">
+                                    <div>
+                                        <ul class="mt-2 p-1">
+                                            <li style="list-style-type: none;" class="p-2">
+                                                Subtotal
+                                                <span class="price float-right">
+                                                    <span class="currency">€</span>
+                                                    <span id="subtotal">0</span>
+                                                </span>
+                                            </li>
+                                            <li style="list-style-type: none;"class="p-2">
+                                                Tax
+                                                <span class="price float-right">
+                                                    <span class="currency">€</span>
+                                                    <span id="tax">0</span>
+                                                </span>
+                                            </li>
+                                            <li style="list-style-type: none; font-weight: 600;"class="p-2">
+                                                TOTAL
+                                                <span class="price float-right">
+                                                    <span class="currency">€</span>
+                                                    <span id="total">0</span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
