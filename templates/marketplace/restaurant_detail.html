@@ -102,9 +102,13 @@
                                                                 </div>
                                                             </div>
                                                             <div class="price-holder">
-                                                                <span class="price"><b>{{ product.price }} € &nbsp; </b></span>
-                                                                <a href="#" class="btn" style="color: #c32222;"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                                                                <span id="add-menu-loader-10"></span>
+                                                                <span class="price mr-4" ><b>{{ product.price }} € &nbsp; </b></span>
+                                                                <a href="#" class="remove_from_cart" data-id="{{product.id}}" data-url="{% url 'remove_from_cart' product.id %}"  style="color: #c32222;">
+                                                                    <i class="fa fa-minus mr-4 fa-lg"  aria-hidden="true"></i>
+                                                                <label  id="qty-{{product.id}}" class="mr-4" style="color: #333; font-size: 16px;"><b>0</b></label>
+                                                                <a href="#" class="add_to_cart" data-id="{{product.id}}" data-url="{% url 'add_to_cart' product.id %}" style="color: #c32222;">
+                                                                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -112,6 +116,12 @@
                                             </ul>
                                         {% endfor %} 
                                     </div>
+                                    {% for item in cart_items %}
+                                        <span id="qty-{{item.product.id}}" class="item_qty d-none" data-qty="{{item.quantity}}">{{item.quantity}}</span>
+                                    {% endfor %}
+                                    {% for item in cart_items %}
+                                        <span id="qty-{{item.product.id}}" class="item_qty d-none" data-qty="{{item.quantity}}">{{item.quantity}}</span>
+                                    {% endfor %}
                                 </div>
                             </div>
                             

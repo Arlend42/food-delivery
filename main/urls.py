@@ -9,5 +9,7 @@ urlpatterns = [
     path("", include('home.urls')),
     path("", include("accounts.urls")),
     path("marketplace/", include("marketplace.urls")),
+    # CART
+    path("cart/", marketplace_views.cart, name="cart"),
     path('search/', marketplace_views.search, name='search'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
