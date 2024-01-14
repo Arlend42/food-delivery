@@ -1,7 +1,7 @@
 Installation Instructions
 =========================
 
-Clone the repo
+**Clone the repo**
 
 ```
 https://github.com/Arlend42/food-delivery.git
