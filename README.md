@@ -16,6 +16,7 @@ python -m venv --prompt=food venv
 pip install -r requirements.txt
 source venv/Scripts/activate (windows)
 
+
 ```
 
 Run migrations
